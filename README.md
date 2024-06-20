@@ -1,5 +1,5 @@
 Task
-
+How to log in with Google in Django project 
 Description
 
 This project demonstrates how to integrate Google OAuth2 for user authentication. Users can log in using their Google accounts, and their information will be saved in the database.
@@ -66,7 +66,7 @@ Usage
 To log in using Facebook, navigate to the Google login URL:
     `http://lcalhost:8000/facebook/login/`
 After successful authentication, the user will be redirected to the callback URL where their information will be processed and stored.
-    `http://lcalhost:8000/facebook/callback/`
+    `http://lcalhost:8000/facebook/callback/` 
 
 
 
@@ -102,7 +102,7 @@ Create a .env file or in setting file in the root directory of your project and 
 `GITHUB_REDIRECT_URI=http://localhost:8000/github/callback/`
 
 Usage
-To log in using Github, navigate to the Google login URL:
+To log in using Github, navigate to the Github login URL:
     `http://lcalhost:8000/github/login/`
 After successful authentication, the user will be redirected to the callback URL where their information will be processed and stored.
     `http://lcalhost:8000/github/callback/`
