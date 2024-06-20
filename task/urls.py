@@ -2,7 +2,7 @@
 # from task.views import SGCRetrieveAPIView, ServiceListAPIView, ServiceCreateAPIView, SGCListAPIView, ServiceRetrieveAPIView
 from django.urls import path, include
 from task.views import SGCRetrieveAPIView, SGCListAPIView, ServiceListAPIView , ServiceRetrieveAPIView, ServiceCreateAPIView,  SGCSListAPIView, SGCCreateAPIView, UserListView, UserRegistrationView, UserLoginView
-from authorization import google_login, google_callback
+from task.google_login import google_login, google_callback
 from task.facebook_login import facebook_login, facebook_callback
 from task.github_login import github_login, github_callback
 from django.contrib.auth import views as auth_views

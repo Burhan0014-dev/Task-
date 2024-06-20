@@ -13,7 +13,7 @@ def facebook_login(request):
     facebook_auth_url = (
         'https://www.facebook.com/v10.0/dialog/oauth?'
         'response_type=code&'
-        f'client_id={settings.SOCIAL_AUTH_FACEBOOK_KEY}&'
+        f'client_id={settings.FACEBOOK_APP_KEY}&'
         f'redirect_uri={settings.FACEBOOK_REDIRECT_URI}&'
         'scope=email,public_profile'
     )
@@ -29,8 +29,8 @@ def facebook_callback(request):
     token_url = 'https://graph.facebook.com/v10.0/oauth/access_token'
     token_data = {
         'code': code,
-        'client_id': settings.SOCIAL_AUTH_FACEBOOK_KEY,
-        'client_secret': settings.SOCIAL_AUTH_FACEBOOK_SECRET,
+        'client_id': settings.FACEBOOK_APP_KEY,
+        'client_secret': settings.FACEBOOK_APP_SECRET,
         'redirect_uri': settings.FACEBOOK_REDIRECT_URI,
     }
 

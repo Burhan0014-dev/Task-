@@ -61,9 +61,6 @@ def github_callback(request):
             'registration_method': 'github',
         }
     )
-    
-    # if not created and user.registration_method != 'github':
-    #     return JsonResponse({'error': 'User exists with different registration method'})
 
     if created:
         token = Token.objects.create(user=user)

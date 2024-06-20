@@ -1,10 +1,8 @@
 import requests
-
 from django.shortcuts import redirect
 from django.conf import settings
 from django.http import JsonResponse
 from task.models import Users
-from task.models import Users  
 from rest_framework.authtoken.models import Token
 
 
@@ -77,8 +75,3 @@ def google_callback(request):
         'created': created,
         'token': token.key if created else None
     })
-
-
-
-
-
