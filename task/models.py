@@ -30,6 +30,8 @@ class Users(AbstractUser):
     REGISTRATION_CHOICES = [
         ('email', 'Email'),
         ('google', 'Google'),
+        ('facebook', 'Facebook'),
+        ('github', 'Github'),
     ]
     registration_method = models.CharField(
         max_length=10,
@@ -37,7 +39,6 @@ class Users(AbstractUser):
         default='email'
     )
     
-
     groups = models.ManyToManyField(
         Group,
         related_name='custom_user_set',  

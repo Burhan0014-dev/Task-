@@ -4,6 +4,7 @@ from django.urls import path, include
 from task.views import SGCRetrieveAPIView, SGCListAPIView, ServiceListAPIView , ServiceRetrieveAPIView, ServiceCreateAPIView,  SGCSListAPIView, SGCCreateAPIView, UserListView, UserRegistrationView, UserLoginView
 from authorization import google_login, google_callback
 from task.facebook_login import facebook_login, facebook_callback
+from task.github_login import github_login, github_callback
 from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('login/', UserLoginView.as_view(), name='log-in'),
@@ -19,7 +20,8 @@ urlpatterns = [
     path('login/google/callback/', google_callback, name='google_callback'),
     path('users/', UserListView.as_view(), name='users'),
     path('social-auth/', include('social_django.urls', namespace='social')),
-    #path('facebook/login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('facebook/login/', facebook_login, name='facebook_login'),
     path('facebook/callback/', facebook_callback, name='facebook_callback'),
+    path('github/login/', github_login, name='github_login'),
+    path('github/callback/', github_callback, name='github_callback'),
 ]
