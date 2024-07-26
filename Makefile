@@ -27,3 +27,6 @@ runserver:
 local:
 	python manage.py runserver
 
+test:
+	poetry run pytest --cov=task --cov-report=term --cov-report=html --cov-config=.coveragerc
+

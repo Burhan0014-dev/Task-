@@ -17,14 +17,14 @@ class SGC(models.Model):
     
 class Services(models.Model):
     service_name= models.UUIDField(default=uuid4, editable=False)
-    service_details = models.CharField(default= "It solutions", null=False)
+    service_details = models.CharField(default= "It solutions", null=True, max_length=255, blank=True)
 
     def __str__(self):
         return str(self.service_name)
 
 
 
-class Users(AbstractUser):
+class User(AbstractUser):
 
     email = models.CharField(max_length=250, unique=True, null=False, blank=False)
     REGISTRATION_CHOICES = [
@@ -57,5 +57,4 @@ class Users(AbstractUser):
         if self.pk is None and not self.password.startswith('pbkdf2_sha256$'):
             
             self.set_password(self.password)
-        super(Users, self).save(*args, **kwargs)
-    
+        super(User, self).save(*args, **kwargs)

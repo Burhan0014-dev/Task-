@@ -13,6 +13,9 @@ services:
       - PG_DB=Task
       - PG_PORT=5432
       - PG_HOST=db
+      - PACKAGR_REPOSITORY_URL=https://api.packagr.app/nwji80I0Y
+      - PACKAGR_USERNAME=testleadz0014@gmail.com
+      - PACKAGR_TOKEN=029cc1441118c85dabdbacf55cad7e4bd3f5c7ed
     depends_on:
       - db
     volumes:
@@ -41,83 +44,10 @@ services:
     volumes:
       - pg_db:/var/lib/postgresql/data
     ports:
-      - "5433:5432"
+      - "5432:5432"
     restart: always
-  
-  # db:
-  #   build:
-  #      context: .
-  #      dockerfile: Dockerfile.pg_cron
-  #   command: [
-  #       "postgres",
-  #       "-c",
-  #       "log_statement=all",
-  #       "-c",
-  #       "log_destination=stderr",
-  #       "-c",
-  #       "shared_preload_libraries=pg_cron",
-  #       "-c",
-  #       "cron.database_name=${POSTGRES_DB-postgres}",
-  #   ]
-  #   container_name: docker-posgres-cron
-  #   environment:
-  #     - POSTGRES_DB=Task
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=Techleadz
-      
-  #   ports:
-  #     - '5433:5432'
 
     
 
 volumes:
   pg_db:
-
-# version: "3.9"
-
-# services:
-#   djangoapp: 
-#     container_name: Django
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     ports:
-#       - "8000:8000"
-#     environment:
-#       - PG_USER=postgres
-#       - PG_PASSWORD=Techleadz
-#       - PG_DB=Sgc
-#       - PG_PORT=5432
-#       - PG_HOST=db
-#     depends_on:
-#       - db
-#     volumes:
-#       - .:/app  
-
-#   db:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     environment:
-#       POSTGRES_PASSWORD: Techleadz
-#       POSTGRES_USER: postgres
-#       POSTGRES_DB: Sgc
-#     volumes:
-#       - ./pgdata:/var/lib/postgresql/data
-#     ports:
-#       - "5432:5432"
-#     restart: always
-
-
-
-  # db:
-  #   container_name: db
-  #   image: postgres:12
-  #   environment:
-  #     - POSTGRES_DB=Sgc
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=Techleadz
-  #   ports:
-  #     - "5432:5432"
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data

@@ -2,7 +2,7 @@ import requests
 from django.shortcuts import redirect
 from django.conf import settings
 from django.http import JsonResponse
-from task.models import Users
+from task.models import User
 from rest_framework.authtoken.models import Token
 
 
@@ -56,10 +56,10 @@ def google_callback(request):
     google_id = user_info.get('id')
 
     try:
-        user = Users.objects.get(email=email)
+        user = User.objects.get(email=email)
         created = False
-    except Users.DoesNotExist:
-        user = Users.objects.create(
+    except User.DoesNotExist:
+        user = User.objects.create(
             email=email,
             username=username,
             registration_method='google',

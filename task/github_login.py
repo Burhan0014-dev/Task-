@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.conf import settings
 from django.http import JsonResponse
 from django.contrib.auth import login
-from task.models import Users  
+from task.models import User
 from rest_framework.authtoken.models import Token
 
 def github_login(request):
@@ -28,13 +28,11 @@ def github_callback(request):
         'redirect_uri': settings.GITHUB_REDIRECT_URI,
     }
     token_headers = {'Accept': 'application/json'}
-
     token_r = requests.post(token_url, data=token_data, headers=token_headers)
     token_json = token_r.json()
 
     if 'access_token' not in token_json:
         return JsonResponse(token_json)
-
     access_token = token_json['access_token']
 
     user_info_url = 'https://api.github.com/user'
@@ -50,11 +48,11 @@ def github_callback(request):
     if user_info_r.status_code != 200 or user_emails_r.status_code != 200:
         return JsonResponse({'error': 'Failed to retrieve user info', 'details': user_info})
 
-    email = next(email for email in user_emails if email['primary'])['email']
+    email = user_emails[0]['email']
     username = user_info.get('login')
     github_id = user_info.get('id')
 
-    user, created = Users.objects.get_or_create(
+    user, created = User.objects.get_or_create(
         email=email,
         defaults={
             'username': username,

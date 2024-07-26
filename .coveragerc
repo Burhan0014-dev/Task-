@@ -1,0 +1,13 @@
+[run]
+branch = True
+source = task
+omit =
+    */migrations/*
+    */tests/*
+    */models.py
+
+
+[report]
+show_missing = True
+skip_covered = False
+

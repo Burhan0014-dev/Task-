@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from django.conf import settings
 from django.shortcuts import redirect
 from django.contrib.auth import login
-from task.models import Users  
+from task.models import User
 from rest_framework.authtoken.models import Token
 
 def facebook_login(request):
@@ -57,7 +57,7 @@ def facebook_callback(request):
     username = user_info.get('name')
     facebook_id = user_info.get('id')
 
-    user, created = Users.objects.get_or_create(
+    user, created = User.objects.get_or_create(
         email=email,
         defaults={
             'username': username,

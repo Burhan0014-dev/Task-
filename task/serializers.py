@@ -1,12 +1,12 @@
 from rest_framework import serializers
-from .models import SGC, Services, Users
+from .models import SGC, Services, User
 
 
 
 class UserSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = Users
+        model = User
         fields = '__all__'
 
 

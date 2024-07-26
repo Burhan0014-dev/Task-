@@ -14,6 +14,7 @@ from pathlib import Path
 import os 
 import socket
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'task',
     'debug_toolbar',
-    'django_crontab',
+    #'django_crontab',
     'rest_framework.authtoken',
     'social_django',
 ]
@@ -135,11 +136,11 @@ DATABASES = {
 #     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
 #     'PAGE_SIZE': 10,
 # }
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.IsAuthenticated',
+#     ],
+# }
 
 CACHES = {
     'default': {
@@ -191,7 +192,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Google Keys
-AUTH_USER_MODEL = 'task.Users'
+AUTH_USER_MODEL = 'task.User'
 GOOGLE_CLIENT_ID = '709649409869-vqndc98e1iqof8q194hlu5qc5qaa8ou1.apps.googleusercontent.com'
 GOOGLE_CLIENT_SECRET = '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'
 GOOGLE_REDIRECT_URI = 'http://localhost:8000/login/google/callback/'
