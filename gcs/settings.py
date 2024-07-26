@@ -191,19 +191,3 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Google Keys
-AUTH_USER_MODEL = 'task.User'
-GOOGLE_CLIENT_ID = '709649409869-vqndc98e1iqof8q194hlu5qc5qaa8ou1.apps.googleusercontent.com'
-GOOGLE_CLIENT_SECRET = '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'
-GOOGLE_REDIRECT_URI = 'http://localhost:8000/login/google/callback/'
-
-#Facebook Keys
-FACEBOOK_APP_KEY = '1017525933233415'
-FACEBOOK_APP_SECRET = 'dcda69fe45ab82d5470ceac876cde579'
-FACEBOOK_REDIRECT_URI = 'http://localhost:8000/facebook/callback/'
-
-
-#Github Keys
-GITHUB_CLIENT_ID = 'Ov23liozwXdew6vqcGk8'
-GITHUB_CLIENT_SECRET = 'd2249256a605b793d1957e21925a36b92bbd6f4d'
-GITHUB_REDIRECT_URI = 'http://localhost:8000/github/callback' 
